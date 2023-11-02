@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent" >
+<ImageView
+android:id="@+id/imageView1"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:layout_alignParentTop="true"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="193dp"
+android:src="@drawable/android" />
+<Button
+android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_below="@+id/imageView1"
+android:layout_marginLeft="200dp"
+android:layout_marginTop="-101dp"
+android:text="@string/Go" />
+</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+MainActivity.java
+package com.example.labex5;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.animation.RotateAnimation;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+public class MainActivity extends AppCompatActivity {
+ImageView iv;
+Button b;
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+iv=(ImageView) findViewById(R.id.imageView1);
+b=(Button) findViewById(R.id.button1);
+b.setOnClickListener(new View.OnClickListener(){
+@Override
+public void onClick(View v){
+//TODO Auto-generated method stub
+RotateAnimation r=new RotateAnimation(0,360);
+r.setDuration(1000);
+iv.startAnimation(r);
+}
+});
+}
+}
+strings.xml
+<resources>
+<string name="app_name">labex5</string>
+<string name="action_settings">Settings</string>
+<string name="hello_world">Hello World!</string>
+<string name="Go">Click to rotate</string>
+</resources>
